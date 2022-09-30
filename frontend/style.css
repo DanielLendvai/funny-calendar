@@ -1,0 +1,57 @@
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+#root {
+  color: red;
+  margin: 2rem 1rem 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#root .January {
+  color: green;
+}
+#root .January .day {
+  color: purple;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 2rem 0 0 2rem;
+  font-size: 1rem;
+}
+
+button {
+  position: absolute;
+}
+button.addMonth {
+  top: 1rem;
+  left: 10px;
+}
+button.removeMonth {
+  top: 3rem;
+  left: 10px;
+}
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.clicked {
+  transform: rotate(180deg);
+  transition: all 1s ease-out;
+}
+
+.day {
+  transition: all 1s ease-out;
+}/*# sourceMappingURL=style.css.map */
