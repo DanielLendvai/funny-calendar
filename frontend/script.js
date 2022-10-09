@@ -98,7 +98,12 @@ rootElement.insertAdjacentHTML(
     "beforeend",
     `<div class="gridContainer container"></div>
     <div class="flexContainer container"></div>
-    <div class="blockContainer container"></div>`
+    <div class="blockContainer container"></div>
+    <div class="modal">
+        <div class="modal-content">
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>`
 );
 
 const gridContainer = document.querySelector(".gridContainer");
@@ -107,7 +112,6 @@ const blockContainer = document.querySelector(".blockContainer");
 
 let monthIndex = 0;
 for (monthIndex; monthIndex < 6; monthIndex++) {
-    console.log(monthIndex);
     gridContainer.insertAdjacentHTML(
         "beforeend",
         monthComponent(
@@ -119,7 +123,6 @@ for (monthIndex; monthIndex < 6; monthIndex++) {
 }
 
 for (monthIndex; monthIndex < 11; monthIndex++) {
-    console.log(monthIndex);
     flexContainer.insertAdjacentHTML(
         "beforeend",
         monthComponent(
@@ -130,15 +133,38 @@ for (monthIndex; monthIndex < 11; monthIndex++) {
     );
 }
 
-for (monthIndex; monthIndex < 13; monthIndex++) {
-    console.log(monthIndex);
-    blockContainer.insertAdjacentHTML(
-        "beforeend",
-        monthComponent(
-            year[monthIndex].nth,
-            year[monthIndex].month,
-            year[monthIndex].days
-        )
-    );
-}
+blockContainer.insertAdjacentHTML(
+    "beforeend",
+    monthComponent(
+        year[monthIndex].nth,
+        year[monthIndex].month,
+        year[monthIndex].days
+    )
+);
+console.log(monthIndex);
 
+const monthName = document.querySelectorAll("section h2");
+monthName.forEach(function (month) {
+    month.addEventListener("click", function () {
+        month.classList.toggle("grow");
+    });
+});
+
+let modal = document.querySelector(".modal");
+let modalContent = document.querySelector(".modal-content");
+
+const dayElements = document.querySelectorAll(".day");
+
+dayElements.forEach(function (days) {
+    days.addEventListener("click", function () {
+        modal.classList.toggle("visible");
+        let string = `http://numbersapi.com/#10/date`
+        console.log(string);
+    });
+});
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.classList.toggle("visible");
+    }
+};
