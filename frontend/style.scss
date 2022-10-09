@@ -1,52 +1,35 @@
-body { 
-    width: 100%;
-    height: 100vh;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-#root {
-    color: red;
-    margin: 2rem 1rem 0 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    .January {
-        color: green;
-        .day {
-            color: purple;
-        }
+.gridContainer {
+    height: 50vh;
+    width: 100%;
+    background-color: antiquewhite;
+    display: inline-grid;
+    section {
+        display: flex;
     }
 }
-
-section {
+.flexContainer {
+    height: 50vh;
+    width: 100%;
+    background-color: azure;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    margin: 2rem 0 0 2rem;
-    font-size: 1rem;
-}
-button {
-    position: absolute;
-    &.addMonth {
-    top: 1rem;
-    left: 10px;
-    }
-    &.removeMonth {
-        top: 3rem;
-        left: 10px;
+    section {
+        display: flex;
     }
 }
-h1 {
-    position: absolute;
-    top: 0;
-    left: 50%;
-}
-.hidden {
-    display: none!important;
-}
-.clicked {
-    transform: rotate(180deg);
-    transition: all 1s ease-out;
-}
-.day {
-    transition: all 1s ease-out;
+.blockContainer {
+    width: 100%;
+    height: 100%;
+    display: block;
+    section {
+        .day {
+            display: inline-block;
+        }
+    }
 }

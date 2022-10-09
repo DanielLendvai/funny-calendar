@@ -83,6 +83,7 @@ const monthComponent = function (nth, name, days) {
     for (let i = 1; i <= days; i++) {
         daysHtml += dayComponent(i);
     }
+
     return `
         <section class="${name}" id="${nth}">
             <h2>${name}</h2>
@@ -92,73 +93,53 @@ const monthComponent = function (nth, name, days) {
     `;
 };
 
-let monthIndex = 0;
 const rootElement = document.querySelector("#root");
-
-rootElement.insertAdjacentHTML("beforeend", `<h1>2022</h1>`);
 rootElement.insertAdjacentHTML(
     "beforeend",
-    `<button class="addMonth">Add month</button>`
-);
-rootElement.insertAdjacentHTML(
-    "beforeend",
-    `<button class="removeMonth">Remove month</button>`
+    `<div class="gridContainer"></div>
+    <div class="flexContainer"></div>
+    <div class="blockContainer"></div>`
 );
 
-const addButtonElement = rootElement.querySelector(".addMonth");
-const removeButtonElement = rootElement.querySelector(".removeMonth");
+const gridContainer = document.querySelector(".gridContainer");
+const flexContainer = document.querySelector(".flexContainer");
+const blockContainer = document.querySelector(".blockContainer");
 
-addButtonElement.addEventListener("click", function () {
-    if (monthIndex < 12) {
-        rootElement.insertAdjacentHTML(
-            "beforeend",
-            monthComponent(
-                year[monthIndex].nth,
-                year[monthIndex].month,
-                year[monthIndex].days
-            )
-            )
-            monthIndex = 12;            
-            addButtonElement.disabled = true;
-    } else {
-    }
-    // itt jelennek meg a hónapok click hatására
-    // initJanuaryEvents();  függvényt meg kell hívni miután megjelentek a hónapok
+let monthIndex = 0;
+for (monthIndex; monthIndex < 6; monthIndex++) {
+    console.log(monthIndex);
+    gridContainer.insertAdjacentHTML(
+        "beforeend",
+        monthComponent(
+            year[monthIndex].nth,
+            year[monthIndex].month,
+            year[monthIndex].days
+        )
+    );
+}
 
-    const dayElements = document.querySelectorAll(".day");
-    // clicked class hozzáadása minden day elemhez for ciklussal
-    // for(let i = 0; i<dayElements.length; i++) {
-    //     dayElements[i].addEventListener("click", function() {
-    //         dayElements[i].classList.toggle("clicked");
-    //     })
-    // };
-    // clicked class hozzáadása minden day elemhez forEach-el
-    // dayElements.forEach(function (day) {
-    //     day.addEventListener("click", function () {
-    //         day.classList.toggle("clicked");
-    //     });
-    // });
-
-    //egyszerre jeleníti meg az összes hónapot
-     for (let monthIndex = 1; monthIndex < 12; monthIndex++) {
-         rootElement.insertAdjacentHTML(
-             "beforeend",
-             monthComponent(
-                 year[monthIndex].nth,
-                 year[monthIndex].month,
-                 year[monthIndex].days
-             )
-         );
-     }
-});
-
-removeButtonElement.addEventListener("click", function () {
-    if (monthIndex != 0) {
-        rootElement.querySelector("section:last-of-type").remove();
-        monthIndex--;
-        addButtonElement.disabled = false;
-    }
-});
+for (monthIndex; monthIndex < 11; monthIndex++) {
+    console.log(monthIndex);
+    flexContainer.insertAdjacentHTML(
+        "beforeend",
+        monthComponent(
+            year[monthIndex].nth,
+            year[monthIndex].month,
+            year[monthIndex].days
+        )
+    );
+}
+for (monthIndex; monthIndex < 13; monthIndex++) {
+    console.log(monthIndex);
+    blockContainer.insertAdjacentHTML(
+        "beforeend",
+        monthComponent(
+            year[monthIndex].nth,
+            year[monthIndex].month,
+            year[monthIndex].days
+        )
+    );
+}
 // kiszervezve az eltüntető funkció |
 const hideDays = function (days) {
     for (let day of days) {
@@ -169,14 +150,4 @@ const showDayInfo = function (dayIndex) {
     let selectedDayInfo = document.querySelector(".January .selected-day");
     selectedDayInfo.textContent = `${dayIndex} of January`;
 };
-
-// every day selected + click eventlistenerek added (hideDays, ShowDayInfo);
-// const initJanuaryEvents = function () {
-//     let days = document.querySelectorAll(".January .day");
-//     for (let day of days) {
-//         day.addEventListener("click", function () {
-//             hideDays(days);
-//             showDayInfo(day.textContent);
-//         });
-//     }
-// };
+showDayInfo();

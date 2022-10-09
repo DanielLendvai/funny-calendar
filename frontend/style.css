@@ -1,57 +1,35 @@
-body {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.gridContainer {
+  height: 50vh;
   width: 100%;
-  height: 100vh;
+  background-color: antiquewhite;
+  display: inline-grid;
 }
-
-#root {
-  color: red;
-  margin: 2rem 1rem 0 1rem;
+.gridContainer section {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-#root .January {
-  color: green;
-}
-#root .January .day {
-  color: purple;
 }
 
-section {
+.flexContainer {
+  height: 50vh;
+  width: 100%;
+  background-color: azure;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  margin: 2rem 0 0 2rem;
-  font-size: 1rem;
+}
+.flexContainer section {
+  display: flex;
 }
 
-button {
-  position: absolute;
+.blockContainer {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-button.addMonth {
-  top: 1rem;
-  left: 10px;
-}
-button.removeMonth {
-  top: 3rem;
-  left: 10px;
-}
-
-h1 {
-  position: absolute;
-  top: 0;
-  left: 50%;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.clicked {
-  transform: rotate(180deg);
-  transition: all 1s ease-out;
-}
-
-.day {
-  transition: all 1s ease-out;
+.blockContainer section .day {
+  display: inline-block;
 }/*# sourceMappingURL=style.css.map */
