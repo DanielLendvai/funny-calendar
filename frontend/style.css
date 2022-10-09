@@ -4,32 +4,40 @@
   box-sizing: border-box;
 }
 
-.gridContainer {
-  height: 50vh;
+.container {
+  height: 100%;
   width: 100%;
-  background-color: antiquewhite;
-  display: inline-grid;
 }
-.gridContainer section {
-  display: flex;
+.container section {
+  padding: 2vh;
+}
+
+.gridContainer {
+  background-color: antiquewhite;
+  display: grid;
+}
+.gridContainer .day {
+  display: inline-grid;
+  font-size: 3vh;
+  letter-spacing: 0.2vh;
+  transition: 0.4s;
 }
 
 .flexContainer {
-  height: 50vh;
-  width: 100%;
   background-color: azure;
   display: flex;
-  flex-wrap: wrap;
-}
-.flexContainer section {
-  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .blockContainer {
-  width: 100%;
-  height: 100%;
+  background-color: bisque;
   display: block;
 }
-.blockContainer section .day {
+.blockContainer .day {
   display: inline-block;
+}
+
+.grow {
+  letter-spacing: 0.9vh;
 }/*# sourceMappingURL=style.css.map */

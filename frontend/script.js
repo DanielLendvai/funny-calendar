@@ -96,9 +96,9 @@ const monthComponent = function (nth, name, days) {
 const rootElement = document.querySelector("#root");
 rootElement.insertAdjacentHTML(
     "beforeend",
-    `<div class="gridContainer"></div>
-    <div class="flexContainer"></div>
-    <div class="blockContainer"></div>`
+    `<div class="gridContainer container"></div>
+    <div class="flexContainer container"></div>
+    <div class="blockContainer container"></div>`
 );
 
 const gridContainer = document.querySelector(".gridContainer");
@@ -129,6 +129,7 @@ for (monthIndex; monthIndex < 11; monthIndex++) {
         )
     );
 }
+
 for (monthIndex; monthIndex < 13; monthIndex++) {
     console.log(monthIndex);
     blockContainer.insertAdjacentHTML(
@@ -140,14 +141,4 @@ for (monthIndex; monthIndex < 13; monthIndex++) {
         )
     );
 }
-// kiszervezve az eltüntető funkció |
-const hideDays = function (days) {
-    for (let day of days) {
-        day.classList.add("hidden");
-    }
-};
-const showDayInfo = function (dayIndex) {
-    let selectedDayInfo = document.querySelector(".January .selected-day");
-    selectedDayInfo.textContent = `${dayIndex} of January`;
-};
-showDayInfo();
+
