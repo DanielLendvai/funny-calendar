@@ -9,7 +9,7 @@ const year = [
         month: "February",
         id: "febr",
         nth: 2,
-        days: 28,
+        days: 29,
     },
     {
         month: "March",
@@ -141,7 +141,6 @@ blockContainer.insertAdjacentHTML(
         year[monthIndex].days
     )
 );
-console.log(monthIndex);
 
 const monthName = document.querySelectorAll("section h2");
 monthName.forEach(function (month) {
@@ -152,17 +151,30 @@ monthName.forEach(function (month) {
 
 let modal = document.querySelector(".modal");
 let modalContent = document.querySelector(".modal-content");
-
+const monthElements = document.querySelectorAll("section");
 const dayElements = document.querySelectorAll(".day");
 
-dayElements.forEach(function (days) {
-    days.addEventListener("click", function () {
-        modal.classList.toggle("visible");
-        let string = `http://numbersapi.com/#10/date`
-        console.log(string);
-    });
-});
-
+// dayElements.forEach(function (days) {
+//     days.addEventListener("click", function () {
+//         modal.classList.toggle("visible");
+//         let string = `http://numbersapi.com/#10/date`;
+//         console.log(string);
+//     });
+// });
+function showInfo() {
+    for (let i = 0; i < dayElements.length; i++) {
+        dayElements[i].addEventListener("click", function () {
+            modal.classList.toggle("visible");
+                fetch(`http://numbersapi.com/1/${i+1}/date`)
+                .then((response) => response.text())
+                .then((data) => {
+                    modalContent.innerHTML = data;
+                });
+            console.log(i);
+        });
+    }
+}
+showInfo();
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.classList.toggle("visible");
