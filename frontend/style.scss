@@ -7,10 +7,16 @@ html,
 body {
     height: 100%;
 }
+
 .container {
-    height: 33.3333vh;
+    height: 100%;
     width: 100%;
+    padding-top: 5vh;
     section {
+        transition: .8s;
+        .days {
+            transition: .4s;
+        }
         h2 {
             transition: 0.5s;
             font-weight: 500;
@@ -19,7 +25,7 @@ body {
         }
         .day {
             transition: 0.4s;
-            font-size: 2vh;
+            font-size: 2.4vh;
             margin: 5px;
             cursor: pointer;
         }
@@ -32,10 +38,13 @@ body {
 }
 
 .gridContainer {
-    background-color: rgb(219, 57, 36);
-    display: inline-grid;
-    grid-auto-flow: column;
-    .February :last-child {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(50px, 1fr));
+    .days {
+        border: 2px groove black;
+        padding: 2vh;
+    }
+    .February .days :last-child {
         opacity: 0.2;
         &:hover {
             transform: rotate(720deg);
@@ -44,17 +53,14 @@ body {
     section {
         text-align: justify;
         margin: 10px 25px 10px 10px;
-        text-overflow:ellipsis;
-        white-space: wrap;
-        overflow:hidden;
+        overflow: hidden;
+        text-overflow: ellipsis;
         .day {
             display: inline-grid;
-            padding: 5px;
         }
     }
 }
 .flexContainer {
-    background-color: rgb(251, 255, 0);
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -62,13 +68,24 @@ body {
         display: flex;
         flex-flow: row wrap;
         align-items: center;
+        .days { 
+            display: flex;
+            flex-flow: row wrap;
+            border-bottom: 2px groove black;
+        }
     }
 }
 
 .blockContainer {
-    background-color: rgb(54, 211, 14);
+    display: inline-block;
     section {
-        display: inline-block;
+        margin-inline: auto;
+        width: max-content;
+        h2 {
+            display: block;
+            margin-inline: auto;
+            width: fit-content;
+        }
         .day {
             display: inline-block;
         }
@@ -79,6 +96,9 @@ body {
     letter-spacing: 3.2vh;
     font-weight: 400 !important;
     padding: 20px 0 10px 0;
+}
+.rotate {
+    transform:rotate(720deg);
 }
 .modal {
     display: none; /* Hidden by default */
@@ -102,4 +122,40 @@ body {
 }
 .visible {
     display: block;
+}
+@media only screen and (max-width: 600px) {
+    body {
+        .gridContainer {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 6fr;
+            section {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 6fr;
+                h2 {
+                    font-size: 2vh;
+                }
+                .day {
+                    font-size: 2vh;
+                    display: grid;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 900px) {
+    body {
+        .gridContainer {
+            section {
+                h2 {
+                    font-size: 2vh;
+                    margin: 10px 0 0 10px;
+                }
+                .day {
+                    font-size: 2vh;
+                }
+            }
+        }
+    }
 }

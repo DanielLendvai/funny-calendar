@@ -83,12 +83,12 @@ const monthComponent = function (nth, name, days) {
     for (let i = 1; i <= days; i++) {
         daysHtml += dayComponent(i);
     }
-
     return `
         <section class="${name}" id="${nth}">
             <h2>${name}</h2>
+            <div class="days">
             ${daysHtml}
-            
+            </div>
         </section>
     `;
 };
@@ -149,10 +149,18 @@ monthName.forEach(function (month) {
     });
 });
 
-let modal = document.querySelector(".modal");
-let modalContent = document.querySelector(".modal-content");
+
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
 const monthElements = document.querySelectorAll("section");
 const dayElements = document.querySelectorAll(".day");
+
+const cards = document.querySelectorAll(".days");
+monthElements.forEach(function (card) {
+    card.addEventListener("click", function () {
+        card.classList.toggle("rotate");
+    });
+});
 
 // dayElements.forEach(function (days) {
 //     days.addEventListener("click", function () {
