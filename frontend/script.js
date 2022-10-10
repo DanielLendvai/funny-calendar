@@ -88,7 +88,7 @@ const monthComponent = function (nth, name, days) {
         <section class="${name}" id="${nth}">
             <h2>${name}</h2>
             ${daysHtml}
-            <div class="selected-day"></div>
+            
         </section>
     `;
 };
@@ -101,7 +101,7 @@ rootElement.insertAdjacentHTML(
     <div class="blockContainer container"></div>
     <div class="modal">
         <div class="modal-content">
-            <p>Some text in the Modal..</p>
+            
         </div>
     </div>`
 );
@@ -175,6 +175,7 @@ function showInfo() {
     }
 }
 showInfo();
+
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.classList.toggle("visible");

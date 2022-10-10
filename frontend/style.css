@@ -4,35 +4,52 @@
   box-sizing: border-box;
 }
 
-.container {
-  overflow: hidden;
+html,
+body {
   height: 100%;
+}
+
+.container {
+  height: 33.3333vh;
   width: 100%;
 }
 .container section h2 {
   transition: 0.5s;
   font-weight: 500;
+  font-size: 3vh;
+  margin: 10px 20px 10px 20px;
 }
 .container section .day {
   transition: 0.4s;
+  font-size: 2vh;
+  margin: 5px;
+  cursor: pointer;
 }
 .container section .day:hover {
   transform: scale(190%);
   color: white;
+  opacity: 1;
 }
 
 .gridContainer {
   background-color: rgb(219, 57, 36);
   display: inline-grid;
   grid-auto-flow: column;
-  text-overflow: ellipsis;
+}
+.gridContainer .February :last-child {
+  opacity: 0.2;
+}
+.gridContainer .February :last-child:hover {
+  transform: rotate(720deg);
 }
 .gridContainer section {
   text-align: justify;
   margin: 10px 25px 10px 10px;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
 }
 .gridContainer section .day {
-  font-size: 1rem;
   display: inline-grid;
   padding: 5px;
 }
@@ -48,20 +65,14 @@
   flex-flow: row wrap;
   align-items: center;
 }
-.flexContainer section h2 {
-  font-size: 2rem;
-  margin: 10px 20px 10px 20px;
-}
-.flexContainer section .day {
-  font-size: 1.4rem;
-  margin: 5px;
-}
 
 .blockContainer {
   background-color: rgb(54, 211, 14);
-  display: block;
 }
-.blockContainer .day {
+.blockContainer section {
+  display: inline-block;
+}
+.blockContainer section .day {
   display: inline-block;
 }
 
@@ -75,7 +86,7 @@
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 25vh; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
