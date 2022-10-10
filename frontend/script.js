@@ -156,7 +156,7 @@ const monthElements = document.querySelectorAll("section");
 const dayElements = document.querySelectorAll(".day");
 
 const cards = document.querySelectorAll(".days");
-monthElements.forEach(function (card) {
+cards.forEach(function (card) {
     card.addEventListener("click", function () {
         card.classList.toggle("rotate");
     });
